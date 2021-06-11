@@ -1,0 +1,79 @@
+@mixin fullscreen {
+    width: 1920px;
+    height: 1080px;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0);
+    margin: 0px auto;
+    overflow: hidden;
+}
+
+#app {
+    @include fullscreen;
+    display: grid;
+    grid-template-rows: 735px 345px;
+    grid-template-columns: 1920px;
+}
+
+.app-container, .app-background {
+    grid-column: 1;
+}
+
+.app-background {
+    @include fullscreen;
+    z-index: 1;
+    grid-row: 1/2;
+}
+
+.app-container {
+    z-index: 2;
+    grid-row: 2;
+    display: grid;
+    grid-template-rows: 90px 15px 240px;
+    grid-template-columns: 790px 340px 790px;
+
+    .team-selection.-Blue, .team-selection.-Red {
+        grid-row: 3;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+    .team-selection.-Blue {
+        grid-column: 1;
+    }
+    .team-selection.-Red {
+        grid-column: 3;
+    }
+
+    .ban-selection.-Blue, .ban-selection.-Red {
+        display: grid;
+        grid-row: 1;
+        display: grid;
+        .ban-selection-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+    .ban-selection.-Blue {
+        grid-column: 1;
+        grid-template-columns: 60% 40%;
+        
+    }
+    .ban-selection.-Red {
+        grid-column: 3;
+        grid-template-columns: 40% 60%;
+        .ban-selection-container {
+            grid-column: 2;
+        }
+    }
+
+    .scoreboard {
+        grid-column: 2;
+        grid-row: 3;
+    }
+    
+    .timer {
+        grid-column: 1/4;
+        grid-row: 2;
+    }
+}
