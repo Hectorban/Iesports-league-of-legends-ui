@@ -23,28 +23,20 @@ const app:FC = () => {
   
   const {
     replicants: { TeamInfoRep }, // Used to take out a replicant from the replicants object
-  } = repState || {}
-  
-  if (!TeamInfoRep) {
-    return (
-      <div>
-        Loading
-      </div>
-    )
-  }
+  } = repState || {}  
 
   const TeamInfoRepData = TeamInfoRep || null 
-  const { Team1Name, Team2Name, Team1Score, Team2Score } = TeamInfoRepData 
+  const { Team1Name, Team2Name, Team1Score, Team2Score } = TeamInfoRepData || null
   
   return (
     <div id='app'>
       <div className='app-container'>
         <TeamInfo
-          Team1Name = {Team1Name}
-          Team2Name = {Team2Name}
-          Team1Score = {Team1Score}
-          Team2Score = {Team2Score}
-        />
+          Team1Name = {Team1Name || "default"}
+          Team2Name = {Team2Name || "default"}
+          Team1Score = {Team1Score || 0}
+          Team2Score = {Team2Score || 0}
+        /> 
       </div>
     </div>
   );

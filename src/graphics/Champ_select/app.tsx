@@ -6,15 +6,10 @@ import NCGStore, { replicate } from "../../stores/NodecgStore";
 import './app.scss'
 import Team from './components/Team';
 import Ban from './components/Ban'
-import Scoreboard from './components/Scoreboard';
 import Timer from './components/Timer';
+import Background from './Images/Background.png'
+import * as example from './util/CSUpdateExample.json'
 
-interface TeamInfoRepTypes {
-  Team1Name: string
-  Team2Name: string
-  Team1Score: number
-  Team2Score: number
-}
 const app: React.FC = (): ReactElement => {
   const [repState, setRepState] = useState({
     replicants: NCGStore.getReplicants(),
@@ -34,10 +29,10 @@ const app: React.FC = (): ReactElement => {
   }, []);
   
   const {
-    replicants: { champSelectUpdate, TeamInfoRep }, // Used to take out a replicant from the replicants object
+    replicants: { champSelectUpdate }, // Used to take out a replicant from the replicants object
   } = repState || {}
   
-  if(!champSelectUpdate || !TeamInfoRep) {
+  if(!champSelectUpdate) {
     return (
       <div className='loading-container'>
         <ReactLoading
@@ -50,16 +45,14 @@ const app: React.FC = (): ReactElement => {
       </div>
     )
   }
-  const TeamInfoData:TeamInfoRepTypes = TeamInfoRep
-  const { Team1Name, Team2Name, Team1Score, Team2Score } = TeamInfoData
-  const champSelect:ChampSelectType = champSelectUpdate
+  const champSelect:ChampSelectType = example
   const { myTeam, theirTeam, bans } = champSelect
   const { myTeamBans, theirTeamBans} = bans
   
   return (
     <div id="app">
       <div className="app-background">
-        <img className="background" src="https://i.imgur.com/YWy7MZ5.jpg" alt="El fondo deberia estar aqui >:c"/>
+        <img className="background" src={Background} alt="El fondo deberia estar aqui >:c"/>
       </div>
       <div className="app-container">
         <Team
@@ -81,12 +74,6 @@ const app: React.FC = (): ReactElement => {
           key={4}
           side='Red'
           data={theirTeamBans}
-        />
-        <Scoreboard
-          Team1Name = {Team1Name}
-          Team2Name = {Team2Name}
-          Team1Score = {Team1Score}
-          Team2Score = {Team2Score}
         />
         <Timer
 

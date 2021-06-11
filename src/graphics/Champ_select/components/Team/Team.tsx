@@ -11,7 +11,7 @@ interface Props {
     side: string
 }
 
-const Team:FC<Props> = ({side, data}:Props): ReactElement => {
+const Team:FC<Props> = ({side, data}:Props) => {
     const [champInfo, setChampInfo] = useState<any>()
     const [summInfo, setSummInfo] = useState<any>()
 
@@ -41,7 +41,6 @@ const Team:FC<Props> = ({side, data}:Props): ReactElement => {
 
     return (
         <div className={`team-selection -${side}`}>
-            <div className="selection">
                 {data.map((playerSelection) =>{
                     const { spell1Id, spell2Id, summonerId, team, cellId, championId } = playerSelection
                     const champName = champInfo[championId]
@@ -58,7 +57,6 @@ const Team:FC<Props> = ({side, data}:Props): ReactElement => {
                         />
                     )
                 })}
-            </div>
         </div>
     );
 };

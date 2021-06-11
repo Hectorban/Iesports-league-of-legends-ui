@@ -1,5 +1,5 @@
 {
-  "name": "Iesports-league-of-legends",
+  "name": "Iesports-league-of-legends-ui",
   "version": "2.0.0",
   "description": "nodecg react parcel template",
   "homepage": "https://github.com/Hectorban/Nodecg-parcel-template",
@@ -30,7 +30,7 @@
     "compatibleRange": "^1.1.1",
     "dashboardPanels": [
       {
-        "name": "League_of_legends",
+        "name": "IESPORTS",
         "title": "Control Panel",
         "file": "Control_panel.html",
         "headerColor": "#525F78",
