@@ -45,7 +45,7 @@ const app: React.FC = (): ReactElement => {
       </div>
     )
   }
-  const champSelect:ChampSelectType = example
+  const champSelect:ChampSelectType = champSelectUpdate
   const { myTeam, theirTeam, bans } = champSelect
   const { myTeamBans, theirTeamBans} = bans
   

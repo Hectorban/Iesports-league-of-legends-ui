@@ -26,7 +26,10 @@ const PlayerPick:FC<Props> = ({champName, spell1Name, spell2Name, team, summoner
             {summonerName ? (
                 <div className='player-pick-container'>
                     <div className='player-pick-name'>{summonerName}</div>
-                    <img className='player-pick-champImage' src={champImage} alt={champName}/>
+                    { champName ? 
+                    <img className='player-pick-champImage' src={champImage} alt={champName}/> :
+                    null
+                    }
                 </div> ) 
                 : null
             }            
