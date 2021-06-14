@@ -7,8 +7,6 @@ import './app.scss'
 import Team from './components/Team';
 import Ban from './components/Ban'
 import Timer from './components/Timer';
-import Background from './Images/Background.png'
-import * as example from './util/CSUpdateExample.json'
 
 const app: React.FC = (): ReactElement => {
   const [repState, setRepState] = useState({
@@ -52,7 +50,10 @@ const app: React.FC = (): ReactElement => {
   return (
     <div id="app">
       <div className="app-background">
-        <img className="background" src={Background} alt="El fondo deberia estar aqui >:c"/>
+        <img className='background-1' src='https://i.imgur.com/fs4iwBB.png' alt='El FONDO deberia estar aqui'/>
+        <video className='background-2' autoPlay muted> 
+          <source src='https://www.dropbox.com/s/qmgmgupp007ytmw/Fondo_Colores.mp4?raw=1'/>
+        </video>
       </div>
       <div className="app-container">
         <Team
@@ -74,9 +75,6 @@ const app: React.FC = (): ReactElement => {
           key={4}
           side='Red'
           data={theirTeamBans}
-        />
-        <Timer
-
         />
       </div>
     </div>
